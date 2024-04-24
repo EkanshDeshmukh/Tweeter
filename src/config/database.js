@@ -1,7 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const connect = ()=>{
-    mongoose.connect('mongodb://localhost/tweeter')
-}
-
-module.exports = connect
+const connect = async() => {
+ 
+     await mongoose.connect("mongodb://127.0.0.1:27017/tweeter");
+    
+};
+module.exports = connect;
