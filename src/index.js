@@ -11,10 +11,11 @@ app.listen(3000, async () => {
 
   //const tweet = await Tweet.find();//
   //const tweet = await Tweet.create();//
-  const tweet = await tweetRepo.update(
-    "662a282641207eaf8e432147",
-    { userEmail:"b@a.com" },
-   
-  );
+  const tweet = await tweetRepo.create({
+    content: "This is my sec tweet with comment",
+  });
   console.log("Tweet created:", tweet);
+  tweet.comment.push({ content: "first comment here " });
+  await tweet.save();
+  console.log(tweet);
 });
