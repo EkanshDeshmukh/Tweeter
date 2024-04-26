@@ -21,7 +21,7 @@ tweetSchema.virtual("contentWithEmail").get(function () {
   return `${this.content} Created by ${this.userEmail}`;
 });
 
-tweetSchema.pre("save", function (next) {
+tweetSchema.pre('save', function (next) {
   console.log("inside a hook");
   this.content = this.content + ".....";
   next();
