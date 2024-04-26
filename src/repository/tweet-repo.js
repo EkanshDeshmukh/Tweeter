@@ -34,6 +34,14 @@ class TweetRepository {
       console.log(error);
     }
   }
+  async getWithComment(id) {
+    try {
+      const tweet = await Tweet.findById(id).populate({path:"comment"})
+      return tweet
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 module.exports = TweetRepository;

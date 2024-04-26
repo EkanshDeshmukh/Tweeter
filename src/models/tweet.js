@@ -9,10 +9,8 @@ const tweetSchema = new mongoose.Schema(
     userEmail: String,
     comment: [
       {
-        content: {
-          type: String,
-          required: true,
-        },
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment",
       },
     ],
   },
