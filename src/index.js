@@ -23,7 +23,8 @@ app.listen(3000, async () => {
   //await tweet.save();
   //console.log(tweet);
 
-  const tweet = await tweetRepo.getAll(2, 3);
+ // const tweet = await tweetRepo.getAll(2, 3);
+ const tweet =  await tweetRepo.create({content:"With hooks now "})
   console.log(tweet);
-  console.log(tweet[0].contentWithEmail);
+ // console.log(tweet[1].contentWithEmail);
 });
