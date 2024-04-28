@@ -13,6 +13,12 @@ const tweetSchema = new mongoose.Schema(
         ref: "Comment",
       },
     ],
+    hastags: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Hashtag",
+      },
+    ],
   },
   { timestamps: true }
 );
@@ -21,7 +27,7 @@ tweetSchema.virtual("contentWithEmail").get(function () {
   return `${this.content} Created by ${this.userEmail}`;
 });
 
-tweetSchema.pre('save', function (next) {
+tweetSchema.pre("save", function (next) {
   console.log("inside a hook");
   this.content = this.content + ".....";
   next();

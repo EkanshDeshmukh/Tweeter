@@ -7,7 +7,7 @@ class TweetRepository {
       return tweet;
     } catch (error) {
       console.error("Error creating tweet:", error);
-      throw error; // Re-throw the error to handle it elsewhere
+      throw error; 
     }
   }
   async get(id) {
