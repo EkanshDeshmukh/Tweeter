@@ -1,7 +1,4 @@
- import HashtagRepository from './hashtag-repo.js'
- import TweetRepository from './tweet-repo.js'
+import HashtagRepository from "./hashtag-repo.js";
+import TweetRepository from "./tweet-repo.js";
 
- export   {
-  HashtagRepository,
-  TweetRepository
- }
+export { HashtagRepository, TweetRepository };
