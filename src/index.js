@@ -1,8 +1,8 @@
-const express = require("express");
-const connect = require("./config/database");
+import express from "express";
+import {connect} from "./config/database.js";
 const app = express();
 
-const TweetService = require("./services/tweet-service");
+import TweetService from "./services/tweet-service.js";
 
 app.listen(3000, async () => {
   console.log("Listening on port 3000");
