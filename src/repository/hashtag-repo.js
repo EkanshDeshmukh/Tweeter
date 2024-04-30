@@ -1,4 +1,4 @@
-const Hashtag = require("../models/hashtag");
+const Hashtag = require("../models/hastag");
 
 class HashtagRepository {
   async create(data) {
@@ -11,8 +11,8 @@ class HashtagRepository {
   }
   async get(id) {
     try {
-      const hashtag = await Hashtag.findById(id);
-      return hashtag;
+      const response = await Hashtag.findById(id);
+      return response;
     } catch (error) {
       console.log(error);
     }
@@ -29,6 +29,24 @@ class HashtagRepository {
     try {
       const hashtag = await Hashtag.findByIdAndRemove(id);
       return hashtag;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async findByName(titleList) {
+    try {
+      const tags = await Hashtag.find({
+        title: titleList,
+      });
+      return tags;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async bulkCreate(data) {
+    try {
+      const tags = await Hashtag.insertMany(data);
+      return tags;
     } catch (error) {
       console.log(error);
     }

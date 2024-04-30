@@ -29,7 +29,7 @@ tweetSchema.virtual("contentWithEmail").get(function () {
 
 tweetSchema.pre("save", function (next) {
   console.log("inside a hook");
-  this.content = this.content + ".....";
+  this.content = this.content + ".";
   next();
 });
 

@@ -2,11 +2,15 @@ const express = require("express");
 const connect = require("./config/database");
 const app = express();
 
-const TweetRepository = require("./repository/tweet-repo");
-const Comment = require("./models/comment");
-const Tweet = require("./models/tweet");
+const TweetService = require("./services/tweet-service");
+
 app.listen(3000, async () => {
   console.log("Listening on port 3000");
   await connect();
-  const tweetRepo = new TweetRepository();
+  console.log("Connected to MongoDB !");
+  let service = new TweetService();
+  const res = await service.create({
+    content: "#sad ",
+  });
+  console.log(res);
 });
