@@ -6,18 +6,10 @@ const tweetSchema = new mongoose.Schema(
       required: true,
     },
     userEmail: String,
-    comment: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment",
-      },
-    ],
-    hastags: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Hashtag",
-      },
-    ],
+    likes:[{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'Like'
+    }]
   },
   { timestamps: true }
 );
@@ -27,7 +19,7 @@ tweetSchema.virtual("contentWithEmail").get(function () {
 });
 
 tweetSchema.pre("save", function (next) {
-  console.log("inside a hook");
+ // console.log("inside a hook");
   this.content = this.content + ".";
   next();
 });

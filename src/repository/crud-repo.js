@@ -20,7 +20,9 @@ class CrudRepository {
   }
   async update(id, data) {
     try {
-      const result = await this.model.findByIdAndUpdate(id, data,{new:true});
+      const result = await this.model.findByIdAndUpdate(id, data, {
+        new: true,
+      });
       return result;
     } catch (error) {
       console.log("Something went wrong in CRUD repo", error);
@@ -40,6 +42,14 @@ class CrudRepository {
       return result;
     } catch (error) {
       console.log("Something went wrong in CRUD repo", error);
+    }
+  }
+  async find(id) {
+    try {
+      const tweet = await Tweet.findById(id).populate({ path: "likes" });
+      return tweet;
+    } catch (error) {
+      console.log(error);
     }
   }
 }

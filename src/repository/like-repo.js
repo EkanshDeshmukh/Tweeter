@@ -1,7 +1,7 @@
 import Like from "../models/like.js";
 import CrudRepository from "./crud-repo.js";
 
-class LikeRepository {
+class LikeRepository extends CrudRepository{
   constructor() {
     super(Like);
   }
