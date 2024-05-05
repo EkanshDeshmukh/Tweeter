@@ -14,6 +14,7 @@ export const toggleLike = async (req, res) => {
       error: {},
     });
   } catch (error) {
+    console.log(error,'controller like');
     return res.status(500).json({
       success: false,
       message: "Something went wrong in like-controller",

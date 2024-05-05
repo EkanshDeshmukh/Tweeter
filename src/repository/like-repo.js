@@ -10,6 +10,7 @@ class LikeRepository extends CrudRepository{
       const like = await Like.findOne(data);
       return like;
     } catch (error) {
+      console.log('Error in like repo',error);
       throw error;
     }
   }
