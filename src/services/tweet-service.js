@@ -1,3 +1,4 @@
+import { getTweet } from "../controllers/tweet-controller.js";
 import { TweetRepository, HashtagRepository } from "../repository/index.js";
 
 class TweetService {
@@ -23,6 +24,12 @@ class TweetService {
       tag.tweets.push(tweet.id);
       tag.save();
     });
+    return tweet;
+  }
+
+  async get(tweetId) {
+    const tweet = await this.tweetRepository.getWithComment(tweetId);
+    console.log(tweet);
     return tweet;
   }
 }
